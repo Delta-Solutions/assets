@@ -12,7 +12,10 @@ file_put_contents('composer.json', $content);
 //install the package
 exec('composer require delta-solutions/inertia-scaffold');
 
-exec('git add .');
-exec('git commit -m "Install the inertia scaffold package"');
+//remove the installer
 
 exec('rm installer.php');
+exec('git add .');
+
+//commit the installation
+exec('git commit -m "Install the inertia scaffold package"');
