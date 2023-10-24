@@ -11,3 +11,5 @@ file_put_contents('composer.json', $content);
 
 //install the package
 exec('composer require delta-solutions/inertia-scaffold');
+
+exec('git add . && git commit -m install the inertia scaffold package);
