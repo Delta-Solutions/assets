@@ -19,3 +19,5 @@ exec('git add .');
 
 //commit the installation
 exec('git commit -m "Install the inertia scaffold package"');
+
+exec('php artisan scaffold:config');
