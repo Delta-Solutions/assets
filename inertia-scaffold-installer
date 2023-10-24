@@ -1,0 +1,13 @@
+<?php
+$composer = json_decode(file_get_contents('composer.json'), true);
+$composer['repositories'][] = [
+'type' => 'vcs',
+'url' => 'git@github.com:Delta-Solutions/inertia-scaffold.git'
+];
+$content = json_encode($composer, JSON_PRETTY_PRINT);
+//don't escape forward slashes
+$content = str_replace('\/', '/', $content);
+file_put_contents('composer.json', $content);
+
+//install the package
+exec('composer require delta-solutions/inertia-scaffold');
