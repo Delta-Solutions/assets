@@ -6,6 +6,9 @@ echo "\033[32m
 | | '_ \ / _ | '__| __| |/ _` | / __|/ __/ _` | |_| |_ / _ \| |/ _` |
 | | | | |  __| |  | |_| | (_| | \__ | (_| (_| |  _|  _| (_) | | (_| |
 |_|_| |_|\___|_|   \__|_|\__,_| |___/\___\__,_|_| |_|  \___/|_|\__,_|
+
+installation in progress ... this can take a while ...
+
 \033[0m";
 
 $composer = json_decode(file_get_contents('composer.json'), true);
@@ -19,7 +22,7 @@ $content = str_replace('\/', '/', $content);
 file_put_contents('composer.json', $content);
 
 //install the package
-exec('composer require delta-solutions/inertia-scaffold');
+exec('composer require delta-solutions/inertia-scaffold -q ');
 
 //remove the installer
 
