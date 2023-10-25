@@ -21,5 +21,3 @@ exec('git add .');
 exec('git commit -m "Install the inertia scaffold package"');
 
 exec('php artisan scaffold:publish-config');
-
-exec('php artisan scaffold:install');
