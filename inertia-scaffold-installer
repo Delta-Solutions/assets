@@ -7,7 +7,7 @@ echo "\033[32m
 | | | | |  __| |  | |_| | (_| | \__ | (_| (_| |  _|  _| (_) | | (_| |
 |_|_| |_|\___|_|   \__|_|\__,_| |___/\___\__,_|_| |_|  \___/|_|\__,_|
 
-installation in progress ... this can take a while ...
+installation in progress ... this can take some time ...
 
 \033[0m";
 
