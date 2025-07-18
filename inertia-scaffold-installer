@@ -11,25 +11,42 @@ installation in progress ... this can take some time ...
 
 \033[0m";
 
+// Check if the current directory is a git repository
+exec('git rev-parse --is-inside-work-tree', $output, $status);
+
+if ($status != 0) {
+    // Initialize the git repository if it isn't one
+    exec('git init');
+
+    // Add all files to git
+    exec('git add .');
+
+    // Commit with a "setup" message
+    exec('git commit -m "setup"');
+}
+
 $composer = json_decode(file_get_contents('composer.json'), true);
 $composer['repositories'][] = [
-'type' => 'vcs',
-'url' => 'git@github.com:Delta-Solutions/inertia-scaffold.git'
+    'type' => 'vcs',
+    'url' => 'git@github.com:Delta-Solutions/inertia-scaffold.git'
 ];
 $content = json_encode($composer, JSON_PRETTY_PRINT);
-//don't escape forward slashes
+// Don't escape forward slashes
 $content = str_replace('\/', '/', $content);
 file_put_contents('composer.json', $content);
 
-//install the package
-exec('composer require delta-solutions/inertia-scaffold -q ');
+// Install the package
+exec('composer require delta-solutions/inertia-scaffold -q');
 
-//remove the installer
-
+// Remove the installer
 exec('rm installer.php');
+
+// Add all modified files to git
 exec('git add .');
 
-//commit the installation
+// Commit the installation
 exec('git commit -m "Install the inertia scaffold package"');
 
+// Publish the scaffold config
 exec('php artisan scaffold:publish-config');
+?>
